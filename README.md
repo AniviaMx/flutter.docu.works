@@ -4,7 +4,7 @@ Aplicacion Flutter para Android e iOS con base preparada para Firebase.
 
 ## Requisitos
 
-- Flutter SDK disponible. En este repo puedes usar el SDK local desde `..\bin\flutter.bat`.
+- Flutter SDK en `C:\Users\alans\OneDrive\Documents\GitHub\flutter`.
 - Android Studio o VS Code con extensiones de Flutter/Dart.
 - Para iOS necesitas macOS con Xcode.
 - Un proyecto creado en Firebase Console.
@@ -14,10 +14,10 @@ Aplicacion Flutter para Android e iOS con base preparada para Firebase.
 Desde esta carpeta:
 
 ```powershell
-..\bin\flutter.bat pub get
-..\bin\flutter.bat analyze
-..\bin\flutter.bat test
-..\bin\flutter.bat run
+C:\Users\alans\OneDrive\Documents\GitHub\flutter\bin\flutter.bat pub get
+C:\Users\alans\OneDrive\Documents\GitHub\flutter\bin\flutter.bat analyze
+C:\Users\alans\OneDrive\Documents\GitHub\flutter\bin\flutter.bat test
+C:\Users\alans\OneDrive\Documents\GitHub\flutter\bin\flutter.bat run
 ```
 
 ## Firebase
@@ -41,6 +41,7 @@ Selecciona Android e iOS, usa el package id `com.docuworks.mobile_docuworks`, y 
 ## Estructura inicial
 
 - `lib/main.dart`: punto de entrada.
-- `lib/app/app.dart`: configura `MaterialApp`, tema y arranque de Firebase.
+- `lib/app/app.dart`: configura `MaterialApp`, rutas y arranque de Firebase.
+- `lib/app/app_theme.dart`: tema visual centralizado.
 - `lib/core/firebase/firebase_bootstrap.dart`: inicializacion segura de Firebase.
-- `lib/features/home/home_screen.dart`: pantalla inicial.
+- `lib/features/auth/presentation/login_screen.dart`: pantalla de login con validaciones locales. La autenticacion real aun no esta conectada.

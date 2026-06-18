@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../app/app_routes.dart';
+import '../app/app_theme.dart';
 import '../core/firebase/firebase_bootstrap.dart';
-import '../features/home/home_screen.dart';
+import '../features/auth/presentation/login_screen.dart';
 
 class DocuWorksApp extends StatefulWidget {
   const DocuWorksApp({super.key});
@@ -19,20 +21,16 @@ class _DocuWorksAppState extends State<DocuWorksApp> {
     return MaterialApp(
       title: 'DocuWorks',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1B6B5F),
-          brightness: Brightness.light,
+      theme: AppTheme.light,
+      initialRoute: AppRoutes.login,
+      routes: {
+        AppRoutes.login: (_) => FutureBuilder<FirebaseBootstrapResult>(
+          future: _firebaseState,
+          builder: (context, snapshot) {
+            return LoginScreen(firebaseState: snapshot.data);
+          },
         ),
-        scaffoldBackgroundColor: const Color(0xFFF7F8FA),
-        useMaterial3: true,
-      ),
-      home: FutureBuilder<FirebaseBootstrapResult>(
-        future: _firebaseState,
-        builder: (context, snapshot) {
-          return HomeScreen(firebaseState: snapshot.data);
-        },
-      ),
+      },
     );
   }
 }
